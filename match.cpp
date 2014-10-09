@@ -2,14 +2,14 @@
 #include <fstream>
 #include <string>
 #include "match.h"
+#include "deduplicator.h"
 
 using namespace std;
 
 void match_strings(string s, ifstream& ifs) {
 	string line;
-
 	while (getline(ifs, line)) {
-		if (is_string_match(s, line))
+		if (is_string_match(s, deduplicate(line)))
 			cout << line << endl;
 	}
 
@@ -20,7 +20,7 @@ void get_fully_unmatched_strings(string s, ifstream& ifs) {
 	string line;
 
 	while (getline(ifs, line)) {
-		if (is_fully_unmatched(s, line))
+		if (is_fully_unmatched(s, deduplicate(line)))
 			cout << line << endl;
 	}
 
