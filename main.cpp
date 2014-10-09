@@ -10,18 +10,22 @@ void print_welcome_message();
 void open_input_file(ifstream&, string);
 string get_characters_to_match();
 void close_input_file(ifstream&);
+string split_string(string);
 
 int main() {
 	
 	string match = "";
+	string printable_match = "";
 	ifstream ifs;
 
 	print_welcome_message();
 	match = get_characters_to_match();
-
+	printable_match = split_string(match);
+	
 	open_input_file(ifs, "input.txt");
-	cout << "The stations that contain all of" << endl;
-	cout << match << endl;
+	cout << "The stations that do contain ALL" << endl;
+	cout << "of the characters outlined below" << endl;
+	cout << printable_match << endl;
 	cout << "in their names are the following:" << endl;
 	cout << "=================================" << endl; 
 	match_strings(match, ifs);
@@ -29,8 +33,9 @@ int main() {
 	close_input_file(ifs);	
 
 	open_input_file(ifs, "input.txt");
-	cout << "The stations that don't contain" << endl;
-	cout << match << endl;
+	cout << "The stations that don't contain ANY" << endl;
+	cout << "of the characters outlined below" << endl;
+	cout << printable_match << endl;
 	cout << "in their names are the following:" << endl;
 	cout << "=================================" << endl; 
 	get_fully_unmatched_strings(match, ifs);	
@@ -80,3 +85,32 @@ string get_characters_to_match() {
 	cout << endl;
 	return match;
 }
+
+/* function: split_string
+ * ======================
+ * transform string into a string of its
+ * characters separated by a vertical bar
+ */
+string split_string(string s) {
+	string split;
+	for (unsigned int i = 0; i < s.length(); i++) {
+		char c = s[i];
+		if (i == 0) {
+			split += c;
+		} else {
+			split += " | ";
+			split += c;
+		}
+	}
+
+	return split;
+}
+
+
+
+
+
+
+
+
+
