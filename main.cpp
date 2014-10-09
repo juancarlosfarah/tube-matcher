@@ -20,14 +20,19 @@ int main() {
 	match = get_characters_to_match();
 
 	open_input_file(ifs, "input.txt");
-	cout << "The stations that matched are:" << endl;	
+	cout << "The stations that contain all of" << endl;
+	cout << match << endl;
+	cout << "in their names are the following:" << endl;
+	cout << "=================================" << endl; 
 	match_strings(match, ifs);
 	cout << endl;
 	close_input_file(ifs);	
 
 	open_input_file(ifs, "input.txt");
-	cout << "The stations that don't contain "
-	     << "any of the characters are: " << endl; 
+	cout << "The stations that don't contain" << endl;
+	cout << match << endl;
+	cout << "in their names are the following:" << endl;
+	cout << "=================================" << endl; 
 	get_fully_unmatched_strings(match, ifs);	
 	close_input_file(ifs);
 
@@ -44,9 +49,6 @@ void print_welcome_message() {
 	cout << "# This matches a string of characters with the #" << endl;
 	cout << "# names of tube stations that contain all of   #" << endl;
 	cout << "# the characters in that string.               #" << endl;
-	cout << "#                                              #" << endl;
-	cout << "# Author: @juancarlosfarah                     #" << endl;
-	cout << "#                                              #" << endl;
 	cout << "################################################" << endl;
 	cout << "\n" << endl;
 
@@ -74,7 +76,7 @@ void close_input_file(ifstream& ifs) {
 string get_characters_to_match() {
 	string match = "";
 	cout << "Enter a string of characters to match." << endl;
-	cin >> match;
+	getline(cin, match);
 	cout << endl;
 	return match;
 }
