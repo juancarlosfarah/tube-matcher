@@ -2,16 +2,17 @@
 
 using namespace std;
 
-string deduplicate(string s) {
-	string deduplicated = "";
+string Deduplicate(string s) {
+
+	string deduped = "";
 	
 	for (unsigned int i = 0; i < s.length(); i++) {
-		size_t index = deduplicated.find(s[i]);
-		if (index == std::string::npos) {
+		size_t index = deduped.find(s[i]);
+		if (index == string::npos) {
 			char c = tolower(s[i]);
-			deduplicated += c;
+			deduped += c;
 		}
 	}
 
-	return deduplicated;
+	return deduped;
 } 

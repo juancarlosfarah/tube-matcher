@@ -1,8 +1,59 @@
 #ifndef MATCH_H
 #define MATCH_H
-	void match_strings(std::string, std::ifstream&);
-	void get_fully_unmatched_strings(std::string, std::ifstream&);
-	bool is_string_match(std::string, std::string);
-	bool is_char_match(char, std::string);
-	bool is_fully_unmatched(std::string, std::string);
+
+	/* function: GetPerfectMatches
+ 	 * ===========================
+ 	 * takes a string and an input file stream
+ 	 * and prints the lines in that file that
+ 	 * contain all the characters in the string.
+ 	 */
+	void GetPerfectMatches(
+		std::string,
+		std::ifstream&
+	);
+	
+	/* function: GetPerfectUnmatches
+ 	 * =============================
+ 	 * takes a string and an input file stream
+ 	 * and prints the lines in that file that 
+ 	 * contain no characters in the string.
+ 	 */ 
+	void GetPerfectUnmatches(
+		std::string s,
+		std::ifstream& file
+	);
+
+	/* function: IsPerfectMatch
+ 	 * ========================
+ 	 * takes two strings and compares them to
+ 	 * see if the characters in the first one
+ 	 * are all in the second.
+ 	 */
+	bool IsPerfectMatch(
+		std::string matcher,
+		std::string matchee
+	);
+	
+	/* function: IsCharInString
+ 	 * ========================
+ 	 * takes a character and a string and
+ 	 * returns true if the character is
+ 	 * in the string.
+ 	 */
+	bool IsCharInString(
+		char c,
+		std::string s 
+	);
+
+
+	/* function: IsPerfectUnmatch
+ 	 * ==========================
+ 	 * takes two strings and compares them
+ 	 * to see if none of the characters of
+ 	 * the first string are in the second.
+ 	 */ 
+	bool IsPerfectUnmatch(
+		std::string matcher,
+		std::string matchee
+	);
 #endif

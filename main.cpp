@@ -28,7 +28,7 @@ int main() {
 	cout << printable_match << endl;
 	cout << "in their names are the following:" << endl;
 	cout << "=================================" << endl; 
-	match_strings(match, ifs);
+	GetPerfectMatches(match, ifs);
 	cout << endl;
 	close_input_file(ifs);	
 
@@ -38,7 +38,7 @@ int main() {
 	cout << printable_match << endl;
 	cout << "in their names are the following:" << endl;
 	cout << "=================================" << endl; 
-	get_fully_unmatched_strings(match, ifs);	
+	GetPerfectUnmatches(match, ifs);	
 	close_input_file(ifs);
 
 	cout << endl;
@@ -61,20 +61,15 @@ void print_welcome_message() {
 }
 
 void open_input_file(ifstream& ifs, string filename) {
-
 	ifs.open(filename);
-
 	if (ifs.fail()) {
 		cerr << "Opening input file failed!" << endl;
 	}
-
 	return;
 }
 
 void close_input_file(ifstream& ifs) {
-
 	ifs.close();
-
 	return;
 }
 
@@ -105,12 +100,3 @@ string split_string(string s) {
 
 	return split;
 }
-
-
-
-
-
-
-
-
-

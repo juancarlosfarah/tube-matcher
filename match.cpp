@@ -6,37 +6,43 @@
 
 using namespace std;
 
-void match_strings(string s, ifstream& ifs) {
+void GetPerfectMatches(string s, ifstream& ifs) {
+
 	string line;
+
 	while (getline(ifs, line)) {
-		if (is_string_match(s, deduplicate(line)))
+		string deduped = Deduplicate(line);
+		if (IsPerfectMatch(s, deduped)) {
+			cout << line << endl;
+		}
+	}
+
+	return;
+}
+
+void GetPerfectUnmatches(string s, ifstream& ifs) {
+	string line;
+
+	while (getline(ifs, line)) {
+		string deduped = Deduplicate(line);
+		if (IsPerfectUnmatch(s, deduped))
 			cout << line << endl;
 	}
 
 	return;
 }
 
-void get_fully_unmatched_strings(string s, ifstream& ifs) {
-	string line;
+bool IsPerfectMatch(string matcher, string matchee) {
 
-	while (getline(ifs, line)) {
-		if (is_fully_unmatched(s, deduplicate(line)))
-			cout << line << endl;
-	}
-
-	return;
-}
-
-bool is_string_match(string matcher, string matchee) {
 	for (int i = 0; i < matcher.length(); i++) {
-		if (!is_char_match(matcher.at(i), matchee))
+		if (!IsCharInString(matcher.at(i), matchee))
 			return false;
 	}
 
 	return true;
 } 
 
-bool is_char_match(char c, string s) {
+bool IsCharInString(char c, string s) {
 	for (int i = 0; i < s.length(); i++) {
 		char c1 = tolower(c);
 		char c2 = tolower(s.at(i));
@@ -47,9 +53,9 @@ bool is_char_match(char c, string s) {
 	return false;	
 }
 
-bool is_fully_unmatched(string matcher, string matchee) {	
+bool IsPerfectUnmatch(string matcher, string matchee) {	
 	for (int i = 0; i < matcher.length(); i++) {
-		if (is_char_match(matcher.at(i), matchee))
+		if (IsCharInString(matcher.at(i), matchee))
 			return false;
 	}
 
