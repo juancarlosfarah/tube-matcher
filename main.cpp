@@ -23,7 +23,7 @@ int main() {
 	printable_match = split_string(match);
 	
 	open_input_file(ifs, "input.txt");
-	cout << "The stations that do CoNtAiN ALL" << endl;
+	cout << "The stations that do contain ALL" << endl;
 	cout << "of the characters outlined below" << endl;
 	cout << printable_match << endl;
 	cout << "in their names are the following:" << endl;
