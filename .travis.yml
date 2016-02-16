@@ -1,15 +1,5 @@
 language: cpp
+sudo: false
+compiler: g++
 before_script: make test
 script: make
-sudo: false
-compiler:
-  - g++
-install:
-- if [ "$CXX" = "g++" ]; then export CXX="g++-4.8" CC="gcc-4.8"; fi
-addons:
-  apt:
-    sources:
-    - ubuntu-toolchain-r-test
-    packages:
-    - gcc-4.8
-    - g++-4.8

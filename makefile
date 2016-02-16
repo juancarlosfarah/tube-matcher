@@ -1,10 +1,10 @@
 install: tubematch
 
 tubematch: main.cpp match.cpp deduplicator.cpp
-	g++ -Wall -g -std=c++11 main.cpp match.cpp deduplicator.cpp -o tubematch
+	g++-4.8 -Wall -g main.cpp match.cpp deduplicator.cpp -o tubematch
 
 test_deduplicator: test_deduplicator.cpp deduplicator.cpp
-	g++ -Wall -g -std=c++11 test_deduplicator.cpp deduplicator.cpp -o test_deduplicator
+	g++-4.8 -Wall -g test_deduplicator.cpp deduplicator.cpp -o test_deduplicator
 
 test: test_deduplicator
 
