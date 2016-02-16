@@ -3,8 +3,7 @@ before_script: make test
 script: make
 sudo: false
 compiler:
-  - gcc
-  - clang
+  - g++
 install:
 - if [ "$CXX" = "g++" ]; then export CXX="g++-4.8" CC="gcc-4.8"; fi
 addons:
@@ -14,4 +13,3 @@ addons:
     packages:
     - gcc-4.8
     - g++-4.8
-    - clang
