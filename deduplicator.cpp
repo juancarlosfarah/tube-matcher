@@ -5,9 +5,9 @@ using namespace std;
 string Deduplicate(string s) {
 
 	string deduped = "";
-	
-	for (char c : s) {
-		c = tolower(c);
+
+	for (int i = 0; i < s.length(); ++i) {
+		char c = tolower(s[i]);
 		size_t index = deduped.find(c);
 		if (index == string::npos) {
 			deduped += c;
@@ -15,4 +15,4 @@ string Deduplicate(string s) {
 	}
 
 	return deduped;
-} 
+}
