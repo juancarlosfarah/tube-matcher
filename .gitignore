@@ -1,3 +1,7 @@
+# Executables
+test_deduplicator
+tubematch
+
 # Compiled Object files
 *.slo
 *.lo
